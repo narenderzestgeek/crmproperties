@@ -1,12 +1,11 @@
-
-
-
+import React from 'react';
+import {Button} from '@material-ui/core'
 const LoginComponent = () => {
     return (
         <>
-
-            <h3>Test Login Page</h3>
-
+        <Button color="primary" variant="contained">
+        Click Me
+      </Button>
         </>
     );
 }
