@@ -3,14 +3,14 @@ import 'antd/dist/antd.css';
 import './navbar.css';
 import { useNavigate } from "react-router-dom";
 import { Menu } from 'antd';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { increment } from '../features/counter/counterSlice';
 import { PageHeader, Button } from 'antd';
 
-
-
 const { SubMenu } = Menu;
-
 const Navbar = () => {
+    const count = useSelector((state) => state.counter.value)
+    const dispatch = useDispatch()
     const navigate = useNavigate();
 
     const handleLoginButton = () => {
@@ -32,6 +32,14 @@ const Navbar = () => {
                     </Button>,
                 ]}
             />
+
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>s
         </>
     )
 }
